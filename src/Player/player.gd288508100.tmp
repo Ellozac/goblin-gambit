@@ -1,0 +1,46 @@
+@export var speed: int = 400
+var screen_size
+var PLAYER_POS = position
+var interpolation_speed = 4
+@export var rotateSpeed = 5
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	screen_size = get_viewport_rect().size
+	position.x = screen_size.x / 2
+	position.y = screen_size.y / 2
+	$bubbles.hide()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	PLAYER_POS = position
+	screen_size = get_viewport_rect().size
+	$AnimatedSprite2D.play()
+	var velocity = Vector2.ZERO
+	if Input.is_action_pressed('left'):
+		#$AnimatedSprite2D.flip_v = false
+		rotation_degrees = 270
+		velocity.x -= 1
+	if Input.is_action_pressed("right"):
+		#$AnimatedSprite2D.flip_v = false
+		velocity.x += 1
+		rotation_degrees = 90
+	if Input.is_action_pressed('up'):
+		velocity.y -= 1
+		rotation_degrees = 360
+	if Input.is_action_pressed("down"):
+		#$AnimatedSprite2D.flip_v = true
+		rotation_degrees = 180
+		velocity.y += 1
+	if velocity.length() > 0:
+		$AnimatedSprite2D.animation = "Swim"
+		
+		velocity = velocity.normalized() * speed
+	else:
+		rotation_degrees = 0
+		#$AnimatedSprite2D.flip_v = false
+		$AnimatedSprite2D.animation = "Idle"
+
+	position += velocity * delta
+	
+	position.x = clamp(position.x, 0, screen_size.x)
+	position.y = clamp(position.y, 0, screen_size.y)
