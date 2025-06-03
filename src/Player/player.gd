@@ -1,31 +1,32 @@
 extends CharacterBody2D
-@export var speed: int = 125
-var PLAYER_POS = position
-# Called when the node enters the scene tree for the first time.
+@export var health = 0
+@export var max_health = 1000
+@export var speed = 125
+func get_input():
+	var input_direction = Input.get_vector("left", "right", "up", "down")
+	velocity = input_direction * speed
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	PLAYER_POS = position
-	$AnimatedSprite2D.play()
-	var velocity = Vector2.ZERO
-	if Input.is_action_pressed('left'):
+	# Flip sprite horizontally
+	if velocity.x < 0:
 		$AnimatedSprite2D.flip_h = true
-		velocity.x -= 1
-	if Input.is_action_pressed("right"):
+	elif velocity.x > 0:
 		$AnimatedSprite2D.flip_h = false
-		velocity.x += 1
-	if Input.is_action_pressed('up'):
-		velocity.y -= 1
-	if Input.is_action_pressed("down"):
-		velocity.y += 1
-	if velocity.length() > 0:
-		$AnimatedSprite2D.animation = "Run"
-		
-		velocity = velocity.normalized() * speed
-	else:
-		rotation_degrees = 0
-		#$AnimatedSprite2D.flip_v = false
+	# Play the correct animation
+	if velocity.length() == 0:
 		$AnimatedSprite2D.animation = "Idle"
+	else:
+		$AnimatedSprite2D.animation = "Run"
+	$AnimatedSprite2D.play()  # <- This is what was missing
 
-	position += velocity * delta
+func _physics_process(delta):
+	get_input()
+	move_and_slide()
 	
+func _ready() -> void:
+	$ProgressBar.max_value = max_health
+	health = max_health
+
+func _process(delta: float) -> void:
+	health = clamp(health, 0, max_health)
+	$ProgressBar.value = health
+	$Label.text = "{0}/{1}".format([health, max_health])
