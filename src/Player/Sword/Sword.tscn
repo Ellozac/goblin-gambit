@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnx1w64sev434"]
+
+[ext_resource type="Texture2D" uid="uid://b7ems5ccx6us1" path="res://Assets/Greatsword.png" id="1_7r7e5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_618oc"]
+size = Vector2(23, 6)
+
+[node name="Sword" type="Sprite2D"]
+texture = ExtResource("1_7r7e5")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(4.5, 0)
+shape = SubResource("RectangleShape2D_618oc")
+debug_color = Color(0.997286, 0, 0.169278, 0.42)

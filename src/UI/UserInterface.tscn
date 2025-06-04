@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://l2gnt0jtita2"]
 
-[ext_resource type="Script" uid="uid://cs0rjdbo33ld7" path="res://src/UI/user_interface.gd" id="1_0xavc"]
-[ext_resource type="Script" uid="uid://boyfcq1ia8ri0" path="res://src/Player/deacrease_hp.gd" id="1_70efa"]
-[ext_resource type="Script" uid="uid://bv5qpkkge8rys" path="res://src/Player/increase_hp.gd" id="2_ark0x"]
+[ext_resource type="Script" path="res://src/UI/user_interface.gd" id="1_0xavc"]
+[ext_resource type="Script" path="res://src/Player/deacrease_hp.gd" id="1_70efa"]
+[ext_resource type="Script" path="res://src/Player/increase_hp.gd" id="2_ark0x"]
 [ext_resource type="Texture2D" uid="uid://2qj03bjvxsrc" path="res://Assets/Icons/settings.png" id="3_3jg12"]
 
 [sub_resource type="GDScript" id="GDScript_3s1jt"]

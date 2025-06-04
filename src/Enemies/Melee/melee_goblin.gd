@@ -5,10 +5,10 @@ var health = 0
 
 func _ready():
 
-	Globalvars.healthbar_toggled.connect(self._on_healthbar_toggled)
+	Globalvars.healthbar_toggled.connect(self.on_healthbar_toggled)
 	$RichTextLabel.visible = Globalvars.enemy_health_bars_enabled
 
-func _on_healthbar_toggled(enabled: bool) -> void:
+func on_healthbar_toggled(enabled: bool) -> void:
 	$RichTextLabel.visible = enabled
 
 func _process(delta):
