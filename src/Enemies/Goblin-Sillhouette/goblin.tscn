@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://crhh8hllusfj5"]
 
-[ext_resource type="Script" path="res://src/Enemies/Goblin-Sillhouette/goblin.gd" id="1_1ukff"]
-[ext_resource type="Texture2D" uid="uid://rjo4uvvt10ar" path="res://Assets/Enemies/Goblin/goblin scout - silhouette all animations-idle.png" id="1_7yn0j"]
+[ext_resource type="Script" uid="uid://dj51i4ggf1eme" path="res://src/Enemies/Goblin-Sillhouette/goblin.gd" id="1_1ukff"]
+[ext_resource type="Texture2D" uid="uid://rjo4uvvt10ar" path="res://Assets/Enemies/ninja/goblin scout - silhouette all animations-idle.png" id="1_7yn0j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l1xj6"]
 
