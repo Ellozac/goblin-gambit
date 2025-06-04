@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=3 uid="uid://cctei4o3g64r6"]
 
-[ext_resource type="Script" uid="uid://bsxhvkj8qps6l" path="res://src/Player/player.gd" id="1_btcbx"]
+[ext_resource type="Script" path="res://src/Player/player.gd" id="1_btcbx"]
 [ext_resource type="Texture2D" uid="uid://c7geq55cixai2" path="res://Assets/Art/Player/FreeKnight/Colour2/Outline/120x80_PNGSheets/_Idle.png" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://l2gnt0jtita2" path="res://src/UI/UserInterface.tscn" id="2_1rxw3"]
 [ext_resource type="Texture2D" uid="uid://c21dao6vwk6gw" path="res://Assets/Art/Player/FreeKnight/Colour2/Outline/120x80_PNGSheets/_Run.png" id="2_qhqgy"]
