@@ -1,10 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://cctei4o3g64r6"]
+[gd_scene load_steps=27 format=3 uid="uid://cctei4o3g64r6"]
 
-[ext_resource type="Script" path="res://src/Player/player.gd" id="1_btcbx"]
+[ext_resource type="Script" uid="uid://bsxhvkj8qps6l" path="res://src/Player/player.gd" id="1_btcbx"]
 [ext_resource type="Texture2D" uid="uid://c7geq55cixai2" path="res://Assets/Art/Player/FreeKnight/Colour2/Outline/120x80_PNGSheets/_Idle.png" id="1_g2els"]
+[ext_resource type="PackedScene" uid="uid://l2gnt0jtita2" path="res://src/UI/UserInterface.tscn" id="2_1rxw3"]
 [ext_resource type="Texture2D" uid="uid://c21dao6vwk6gw" path="res://Assets/Art/Player/FreeKnight/Colour2/Outline/120x80_PNGSheets/_Run.png" id="2_qhqgy"]
-[ext_resource type="Script" path="res://src/Player/deacrease_hp.gd" id="4_yk2c5"]
-[ext_resource type="Script" path="res://src/Player/increase_hp.gd" id="5_hw3e7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lbhrr"]
 atlas = ExtResource("1_g2els")
@@ -159,11 +158,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
-size = Vector2(21, 38)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t6t3t"]
+height = 40.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_btcbx")
+
+[node name="UserInterface" parent="." instance=ExtResource("2_1rxw3")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(6, -38)
@@ -173,43 +174,7 @@ offset = Vector2(0, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -19)
-shape = SubResource("RectangleShape2D_4ntmi")
+shape = SubResource("CapsuleShape2D_t6t3t")
 debug_color = Color(2.83971e-06, 0.620983, 0.558024, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = -554.0
-offset_top = 278.0
-offset_right = -368.0
-offset_bottom = 305.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = -544.0
-offset_top = 257.0
-offset_right = -466.0
-offset_bottom = 297.0
-text = "Health"
-
-[node name="DecreaseHP" type="Button" parent="."]
-offset_left = -438.0
-offset_top = -308.0
-offset_right = -332.0
-offset_bottom = -267.0
-text = "Decrease Hp"
-script = ExtResource("4_yk2c5")
-
-[node name="IncreaseHP" type="Button" parent="."]
-offset_left = -562.0
-offset_top = -309.0
-offset_right = -456.0
-offset_bottom = -267.0
-text = "Increase Hp"
-script = ExtResource("5_hw3e7")
-
-[node name="Label" type="Label" parent="."]
-offset_left = -453.0
-offset_top = 256.0
-offset_right = -413.0
-offset_bottom = 279.0
-text = "Fart!"

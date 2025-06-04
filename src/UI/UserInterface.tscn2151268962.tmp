@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://l2gnt0jtita2"]
+
+[ext_resource type="Script" uid="uid://cs0rjdbo33ld7" path="res://src/UI/user_interface.gd" id="1_0xavc"]
+[ext_resource type="Script" uid="uid://boyfcq1ia8ri0" path="res://src/Player/deacrease_hp.gd" id="1_70efa"]
+[ext_resource type="Script" uid="uid://bv5qpkkge8rys" path="res://src/Player/increase_hp.gd" id="2_ark0x"]
+[ext_resource type="Texture2D" uid="uid://2qj03bjvxsrc" path="res://Assets/Icons/settings.png" id="3_3jg12"]
+
+[sub_resource type="GDScript" id="GDScript_3s1jt"]
+script/source = "extends MenuButton
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="UserInterface" type="Node2D"]
+script = ExtResource("1_0xavc")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -554.0
+offset_top = 278.0
+offset_right = -368.0
+offset_bottom = 305.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -544.0
+offset_top = 257.0
+offset_right = -466.0
+offset_bottom = 297.0
+text = "Health"
+
+[node name="DecreaseHP" type="Button" parent="."]
+visible = false
+offset_left = -438.0
+offset_top = -308.0
+offset_right = -332.0
+offset_bottom = -267.0
+text = "Decrease Hp"
+script = ExtResource("1_70efa")
+
+[node name="IncreaseHP" type="Button" parent="."]
+visible = false
+offset_left = -562.0
+offset_top = -309.0
+offset_right = -456.0
+offset_bottom = -267.0
+text = "Increase Hp"
+script = ExtResource("2_ark0x")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -453.0
+offset_top = 256.0
+offset_right = -413.0
+offset_bottom = 279.0
+text = "0/0"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+
+[node name="MenuButton" type="MenuButton" parent="."]
+offset_left = 481.0
+offset_top = -310.0
+offset_right = 1355.0
+offset_bottom = 498.0
+scale = Vector2(0.0774177, 0.0774177)
+text = "Settings"
+icon = ExtResource("3_3jg12")
+script = SubResource("GDScript_3s1jt")
