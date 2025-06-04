@@ -23,10 +23,10 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func _ready() -> void:
-	$ProgressBar.max_value = max_health
+	$UserInterface/ProgressBar.max_value = max_health
 	health = max_health
 
 func _process(delta: float) -> void:
 	health = clamp(health, 0, max_health)
-	$ProgressBar.value = health
-	$Label.text = "{0}/{1}".format([health, max_health])
+	$UserInterface/ProgressBar.value = health
+	$UserInterface/Label.text = "{0}/{1}".format([health, max_health])
